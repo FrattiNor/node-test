@@ -1,0 +1,6 @@
+[2021-09-27T11:39:17.705] [TRACE] default - Entering cheese testing
+[2021-09-27T11:39:17.711] [DEBUG] default - Got cheese.
+[2021-09-27T11:39:17.711] [INFO] default - Cheese is Comté.
+[2021-09-27T11:39:17.711] [WARN] default - Cheese is quite smelly.
+[2021-09-27T11:39:17.711] [ERROR] default - Cheese is too ripe!
+[2021-09-27T11:39:17.711] [FATAL] default - Cheese was breeding ground for listeria.
