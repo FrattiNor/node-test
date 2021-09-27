@@ -1,13 +1,23 @@
 {
     "compilerOptions": {
-        "module": "commonjs", //指定生成哪个模块系统代码
-        "target": "es6", //目标代码类型
-        "noImplicitAny": false, //在表达式和声明上有隐含的'any'类型时报错。
-        "sourceMap": false, //用于debug
-        "rootDir": "./src", //仅用来控制输出的目录结构--outDir。
-        "outDir": "./build", //重定向输出目录。
-        "watch": true //在监视模式下运行编译器。会监视输出文件，在它们改变时重新编译。
+        // "incremental": true,                   /* 增量编译 提高编译速度*/
+        "target": "ES2019" /* 编译目标ES版本*/,
+        "module": "commonjs" /* 编译目标模块系统*/,
+        // "lib": [],                             /* 编译过程中需要引入的库文件列表*/
+        "declaration": true /* 编译时创建声明文件 */,
+        "outDir": "dist" /* ts编译输出目录 */,
+        "rootDir": "src" /* ts编译根目录. */,
+        // "importHelpers": true,                 /* 从tslib导入辅助工具函数(如__importDefault)*/
+        "strict": true /* 严格模式开关 等价于noImplicitAny、strictNullChecks、strictFunctionTypes、strictBindCallApply等设置true */,
+        "noUnusedLocals": true /* 未使用局部变量报错*/,
+        "noUnusedParameters": true /* 未使用参数报错*/,
+        "noImplicitReturns": true /* 有代码路径没有返回值时报错*/,
+        "noFallthroughCasesInSwitch": true /* 不允许switch的case语句贯穿*/,
+        "moduleResolution": "node" /* 模块解析策略 */,
+        "typeRoots": [/* 要包含的类型声明文件路径列表*/ "./typings", "./node_modules/@types"],
+        "allowSyntheticDefaultImports": false /* 允许从没有设置默认导出的模块中默认导入，仅用于提示，不影响编译结果*/,
+        "esModuleInterop": false /* 允许编译生成文件时，在代码中注入工具类(__importDefault、__importStar)对ESM与commonjs混用情况做兼容处理*/
     },
-    "include": ["./src/**/*"],
-    "exclude": ["views", "static"]
+    "include": [/* 需要编译的文件 */ "src/**/*.ts", "typings/**/*.ts"],
+    "exclude": [/* 编译需要排除的文件 */ "node_modules/**"]
 }

@@ -1,0 +1,48 @@
+[2021-09-27T11:21:33.454] [TRACE] default - Entering cheese testing
+[2021-09-27T11:21:33.456] [DEBUG] default - Got cheese.
+[2021-09-27T11:21:33.457] [INFO] default - Cheese is Comté.
+[2021-09-27T11:21:33.457] [WARN] default - Cheese is quite smelly.
+[2021-09-27T11:21:33.457] [ERROR] default - Cheese is too ripe!
+[2021-09-27T11:21:33.457] [FATAL] default - Cheese was breeding ground for listeria.
+[2021-09-27T11:25:26.211] [TRACE] default - Entering cheese testing
+[2021-09-27T11:25:26.212] [DEBUG] default - Got cheese.
+[2021-09-27T11:25:26.212] [INFO] default - Cheese is Comté.
+[2021-09-27T11:25:26.213] [WARN] default - Cheese is quite smelly.
+[2021-09-27T11:25:26.213] [ERROR] default - Cheese is too ripe!
+[2021-09-27T11:25:26.213] [FATAL] default - Cheese was breeding ground for listeria.
+[2021-09-27T11:29:02.963] [TRACE] default - Entering cheese testing
+[2021-09-27T11:29:02.965] [DEBUG] default - Got cheese.
+[2021-09-27T11:29:02.965] [INFO] default - Cheese is Comté.
+[2021-09-27T11:29:02.965] [WARN] default - Cheese is quite smelly.
+[2021-09-27T11:29:02.965] [ERROR] default - Cheese is too ripe!
+[2021-09-27T11:29:02.966] [FATAL] default - Cheese was breeding ground for listeria.
+[2021-09-27T11:33:08.656] [TRACE] default - Entering cheese testing
+[2021-09-27T11:33:08.658] [DEBUG] default - Got cheese.
+[2021-09-27T11:33:08.658] [INFO] default - Cheese is Comté.
+[2021-09-27T11:33:08.658] [WARN] default - Cheese is quite smelly.
+[2021-09-27T11:33:08.658] [ERROR] default - Cheese is too ripe!
+[2021-09-27T11:33:08.658] [FATAL] default - Cheese was breeding ground for listeria.
+[2021-09-27T11:33:56.637] [TRACE] default - Entering cheese testing
+[2021-09-27T11:33:56.638] [DEBUG] default - Got cheese.
+[2021-09-27T11:33:56.638] [INFO] default - Cheese is Comté.
+[2021-09-27T11:33:56.638] [WARN] default - Cheese is quite smelly.
+[2021-09-27T11:33:56.638] [ERROR] default - Cheese is too ripe!
+[2021-09-27T11:33:56.638] [FATAL] default - Cheese was breeding ground for listeria.
+[2021-09-27T11:35:10.484] [TRACE] default - Entering cheese testing
+[2021-09-27T11:35:10.486] [DEBUG] default - Got cheese.
+[2021-09-27T11:35:10.486] [INFO] default - Cheese is Comté.
+[2021-09-27T11:35:10.486] [WARN] default - Cheese is quite smelly.
+[2021-09-27T11:35:10.486] [ERROR] default - Cheese is too ripe!
+[2021-09-27T11:35:10.486] [FATAL] default - Cheese was breeding ground for listeria.
+[2021-09-27T11:35:49.097] [TRACE] default - Entering cheese testing
+[2021-09-27T11:35:49.098] [DEBUG] default - Got cheese.
+[2021-09-27T11:35:49.098] [INFO] default - Cheese is Comté.
+[2021-09-27T11:35:49.098] [WARN] default - Cheese is quite smelly.
+[2021-09-27T11:35:49.098] [ERROR] default - Cheese is too ripe!
+[2021-09-27T11:35:49.099] [FATAL] default - Cheese was breeding ground for listeria.
+[2021-09-27T11:35:51.825] [TRACE] default - Entering cheese testing
+[2021-09-27T11:35:51.826] [DEBUG] default - Got cheese.
+[2021-09-27T11:35:51.827] [INFO] default - Cheese is Comté.
+[2021-09-27T11:35:51.827] [WARN] default - Cheese is quite smelly.
+[2021-09-27T11:35:51.827] [ERROR] default - Cheese is too ripe!
+[2021-09-27T11:35:51.827] [FATAL] default - Cheese was breeding ground for listeria.
