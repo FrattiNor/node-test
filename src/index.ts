@@ -1,8 +1,12 @@
 import logger from './utils/log'
+import * as http from 'http'
+import env from './utils/env'
 
-logger.trace('Entering cheese testing')
-logger.debug('Got cheese.')
-logger.info('Cheese is Comté.')
-logger.warn('Cheese is quite smelly.')
-logger.error('Cheese is too ripe!')
-logger.fatal('Cheese was breeding ground for listeria.')
+const server = http.createServer((req, res) => {
+    logger.info(req)
+    res.end('666')
+})
+
+server.listen(env.PORT, () => {
+    console.log(`server listening at ${env.PORT}`)
+})
