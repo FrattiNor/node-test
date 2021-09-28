@@ -1,29 +1,51 @@
-import logger from './utils/log'
-import * as http from 'http'
+import logger, { requestLogger } from './utils/log'
+import formatRes from './utils/formatRes'
+import env from './utils/env'
+import handleAPI from './router/api'
+import * as http2 from 'http2'
 import * as path from 'path'
 import * as fs from 'fs'
 import * as mime from 'mime-types'
-import env from './utils/env'
 
-const server = http.createServer((req, res) => {
+const handleRequest = (req: http2.Http2ServerRequest, res: http2.Http2ServerResponse) => {
     const { url = '/' } = req
-    const filePath = path.join(path.join(__dirname, '../'), url)
+    requestLogger.info(url)
+    logger.error(url)
 
-    logger.info(filePath)
-
-    fs.access(filePath, fs.constants.R_OK, (err) => {
-        if (err) {
-            res.writeHead(404, {
-                'content-type': 'text/html;charset=utf-8'
-            })
-            res.end('文件不存在！')
-        } else {
+    switch (url.match(/^\/(api)/)?.[1]) {
+        case 'api':
+            handleAPI(req, res)
+            break
+        default:
             res.writeHead(200, {
-                'content-type': mime.contentType(path.extname(url)) as string
+                'content-type': `${mime.contentType('json')}`
             })
-            fs.createReadStream(filePath).pipe(res)
-        }
-    })
+            res.end(formatRes(200, '接口不存在'))
+            break
+    }
+}
+
+const server = http2.createSecureServer(
+    {
+        key: fs.readFileSync(path.join(__dirname, '../https/localhost-privkey.pem')),
+        cert: fs.readFileSync(path.resolve(__dirname, '../https/localhost-cert.pem'))
+    },
+    handleRequest
+)
+
+server.on('close', (info) => {
+    console.log('close', info)
+    logger.info(info)
+})
+
+server.on('error', (err) => {
+    console.log('err', err)
+    logger.error(err)
+})
+
+server.on('connect', (info) => {
+    console.log('connect', info)
+    logger.info(info)
 })
 
 server.listen(env.PORT, () => {
