@@ -1,5 +1,7 @@
 import { requestLogger } from './utils/log'
+import { pool } from './utils/sql'
 import formatApi from './utils/formatApi'
+import logger from './utils/log'
 import env from './utils/env'
 import handleAPI from './router/api'
 import * as http2 from 'http2'
@@ -25,4 +27,12 @@ const server = http2.createSecureServer(
 
 server.listen(env.PORT, () => {
     console.log(`server is running at http://localhost:${env.PORT}`)
+})
+
+process.on('exit', async () => {
+    try {
+        await pool.end()
+    } catch (e) {
+        await logger.error(e)
+    }
 })

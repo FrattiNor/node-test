@@ -25,4 +25,5 @@ const query = (sql: string, callback: any): void => {
     })
 }
 
+export { pool }
 export default query

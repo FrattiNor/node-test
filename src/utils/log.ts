@@ -12,4 +12,5 @@ configure({
 const defaultLogger = getLogger('default')
 const requestLogger = getLogger('request')
 
-export { defaultLogger as default, requestLogger }
+export { requestLogger }
+export default defaultLogger
