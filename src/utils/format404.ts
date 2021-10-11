@@ -1,8 +1,8 @@
 import formatRes from './formatRes'
-import * as http2 from 'http2'
 import * as mime from 'mime-types'
+import { resType } from '../index'
 
-const format404 = (res: http2.Http2ServerResponse): void => {
+const format404 = (res: resType): void => {
     res.writeHead(200, {
         'content-type': `${mime.contentType('json')}`
     })

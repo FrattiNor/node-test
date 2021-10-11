@@ -1,15 +1,15 @@
-import * as http2 from 'http2'
 import format404 from './format404'
+import { resType, reqType } from '../index'
 
-export type handleFun = (otherUrlList: string[], req: http2.Http2ServerRequest, res: http2.Http2ServerResponse) => void
+export type handleFun = (otherUrlList: string[], req: reqType, res: resType) => void
 
 type option = {
     [key: string]: handleFun
 }
 
-type fun = (url: string | string[], req: http2.Http2ServerRequest, res: http2.Http2ServerResponse, option: option) => void
+type fun = (url: string | string[] | undefined, req: reqType, res: resType, option: option) => void
 
-type innerUrl = string | string[]
+type innerUrl = string | string[] | undefined
 type backRes = { firstStr: string; otherUrlList: string[] }
 
 const getUrlList = (url: string): string[] => {
@@ -21,7 +21,7 @@ const getUrlList = (url: string): string[] => {
 }
 
 export const formatUrl = (url: innerUrl): backRes => {
-    const urlList = typeof url === 'string' ? getUrlList(url) : [...url]
+    const urlList = typeof url === 'string' ? getUrlList(url) : [...(url || [])]
     const firstStr = urlList.shift() || ''
     return { firstStr, otherUrlList: urlList }
 }

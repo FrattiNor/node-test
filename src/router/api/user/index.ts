@@ -8,6 +8,27 @@ const handleUser: handleFun = (urlList, req, res) => {
     if (urlList.length === 0) {
         const { method } = req
         formatMethod(method, res, {
+            PUT: () => {
+                sql('select * from user', (err: any, val: any) => {
+                    logger.info(err)
+                    logger.info(val)
+                    res.end(formatRes(200, val))
+                })
+            },
+            DELETE: () => {
+                sql('select * from user', (err: any, val: any) => {
+                    logger.info(err)
+                    logger.info(val)
+                    res.end(formatRes(200, val))
+                })
+            },
+            POST: () => {
+                sql('select * from user', (err: any, val: any) => {
+                    logger.info(err)
+                    logger.info(val)
+                    res.end(formatRes(200, val))
+                })
+            },
             GET: () => {
                 sql('select * from user', (err: any, val: any) => {
                     logger.info(err)
