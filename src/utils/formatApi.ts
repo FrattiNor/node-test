@@ -1,5 +1,6 @@
 import format404 from './format404'
 import { resType, reqType } from '../index'
+import logger from './log'
 
 export type handleFun = (otherUrlList: string[], req: reqType, res: resType) => void
 
@@ -13,10 +14,13 @@ type innerUrl = string | string[] | undefined
 type backRes = { firstStr: string; otherUrlList: string[] }
 
 const getUrlList = (url: string): string[] => {
-    if (url.slice(0, 1) === '/') {
-        return url.split('/').slice(1)
+    const parseUrl = new URL(url, `http://anyhost`)
+    const { pathname } = parseUrl
+
+    if (pathname.slice(0, 1) === '/') {
+        return pathname.split('/').slice(1)
     } else {
-        return url.split('/')
+        return pathname.split('/')
     }
 }
 
@@ -27,14 +31,18 @@ export const formatUrl = (url: innerUrl): backRes => {
 }
 
 const formatApi: fun = (url, req, res, option) => {
-    const { firstStr, otherUrlList } = formatUrl(url)
+    try {
+        const { firstStr, otherUrlList } = formatUrl(url)
 
-    const theHandleFun = option[firstStr]
+        const theHandleFun = option[firstStr]
 
-    if (typeof theHandleFun === 'function') {
-        theHandleFun(otherUrlList, req, res)
-    } else {
-        format404(res)
+        if (typeof theHandleFun === 'function') {
+            theHandleFun(otherUrlList, req, res)
+        } else {
+            format404(res)
+        }
+    } catch (e) {
+        logger.error(e)
     }
 }
 

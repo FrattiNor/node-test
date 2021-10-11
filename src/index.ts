@@ -1,4 +1,3 @@
-import { requestLogger } from './utils/log'
 import { pool } from './utils/sql'
 import formatApi from './utils/formatApi'
 import logger from './utils/log'
@@ -13,7 +12,7 @@ export type resType = http.ServerResponse
 
 const handleRequest = (req: reqType, res: resType) => {
     const { url } = req
-    requestLogger.info(url)
+    logger.info(`begin: ${url} === `)
 
     formatApi(url, req, res, {
         api: handleAPI

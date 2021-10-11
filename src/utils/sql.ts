@@ -9,19 +9,26 @@ const pool = mysql.createPool({
     port: 3306
 })
 
-const query = (sql: string, callback: any): void => {
-    pool.getConnection((err, connection) => {
-        if (err) {
-            logger.error(err)
-            callback(err)
-        } else {
-            connection.query(sql, (err, val, fields) => {
-                //释放连接
-                connection.release()
-                //事件驱动回调
-                callback(err, val, fields)
-            })
-        }
+const query = (sql: string): Promise<any> => {
+    return new Promise((res, rej) => {
+        pool.getConnection((err, connection) => {
+            if (err) {
+                logger.error(err)
+                rej(err)
+            } else {
+                connection.query(sql, (err, val) => {
+                    //释放连接
+                    connection.release()
+
+                    if (err) {
+                        logger.error(err)
+                        rej(err)
+                    } else {
+                        res(val)
+                    }
+                })
+            }
+        })
     })
 }
 

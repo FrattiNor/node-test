@@ -9,8 +9,7 @@ configure({
     categories: { default: { appenders: ['default'], level: 'trace' }, request: { appenders: ['request'], level: 'trace' } } // 定义日志级别
 })
 
-const defaultLogger = getLogger('default')
-const requestLogger = getLogger('request')
+const logger = getLogger('default')
+// const logger = getLogger('request')
 
-export { requestLogger }
-export default defaultLogger
+export default logger
